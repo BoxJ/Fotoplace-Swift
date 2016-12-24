@@ -128,7 +128,7 @@ class DrawerRootVC: UIViewController {
         }
         
         addEdgePanGestureRecognizer(viewController.view)
-//        addTapGestureToController(viewController.view)
+        addTapGestureToController(viewController.view)
         addPanGestureToController(viewController.view)
     }
     

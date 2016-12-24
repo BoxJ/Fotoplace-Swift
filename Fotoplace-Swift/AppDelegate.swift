@@ -20,9 +20,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = UIColor.white
         window?.makeKeyAndVisible()
         
-        loadIndex()
+        initShareSdk()
+        
+        loadLogin()
         
         return true
+    }
+    
+    func loadLogin(){
+        let loginVC = LoginVC()
+        window?.rootViewController = loginVC
     }
 
     func loadIndex() {
@@ -57,6 +64,46 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         slider.addPreloadViewController(tableView, offset:200.0)
         self.slider = slider
         window?.rootViewController = slider
+    }
+    
+    func initShareSdk(){
+        ShareSDK.registerApp("2ddd189312ac", activePlatforms:[
+        SSDKPlatformType.typeSinaWeibo.rawValue,
+        SSDKPlatformType.typeWechat.rawValue,
+        SSDKPlatformType.typeQQ.rawValue],
+        onImport: { (platform : SSDKPlatformType) in
+            switch platform
+            {
+                case SSDKPlatformType.typeSinaWeibo:
+                    ShareSDKConnector.connectWeibo(WeiboSDK.classForCoder())
+                case SSDKPlatformType.typeWechat:
+                    ShareSDKConnector.connectWeChat(WXApi.classForCoder())
+                case SSDKPlatformType.typeQQ:
+                    ShareSDKConnector.connectQQ(QQApiInterface.classForCoder(), tencentOAuthClass: TencentOAuth.classForCoder())
+                default:
+                break
+            }
+        }) { (platform : SSDKPlatformType, appInfo : NSMutableDictionary?) in
+            switch platform
+            {
+                case SSDKPlatformType.typeSinaWeibo:
+                    //设置新浪微博应用信息,其中authType设置为使用SSO＋Web形式授权
+                    appInfo?.ssdkSetupSinaWeibo(byAppKey: "584178949",
+                    appSecret : "cdbfe71b99f4aae1826596420d4930c2",
+                    redirectUri : "http://www.sina.com",
+                    authType : SSDKAuthTypeBoth)
+                case SSDKPlatformType.typeWechat:
+                    //设置微信应用信息
+                    appInfo?.ssdkSetupWeChat(byAppId: "wx42e67c108af71d4b", appSecret: "9031982c7829eb6c8bfd54e25758cdb1")
+                case SSDKPlatformType.typeQQ:
+                    //设置QQ应用信息
+                    appInfo?.ssdkSetupQQ(byAppId: "1101722328",
+                    appKey : "TU8TDKxHKGQ4SHuw",
+                    authType : SSDKAuthTypeWeb)
+                default:
+                break
+            }
+        }
     }
     
     func applicationWillResignActive(_ application: UIApplication) {

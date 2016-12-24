@@ -38,6 +38,17 @@ class BaseVC: UIViewController {
         }
     }
 
+    /**
+     *  16进制 转 RGB
+     */
+    class func UIColorFromHex(hex:Int) -> UIColor {
+        
+        return UIColor(red: ((CGFloat)((hex&0xFF0000) >> 16)) / 255.0,
+                       green: ((CGFloat)((hex&0xFF00) >> 8)) / 255.0,
+                       blue: ((CGFloat)(hex&0xFF)) / 255.0,
+                       alpha: 1.0)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
