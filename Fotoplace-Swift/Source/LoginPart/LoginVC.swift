@@ -30,6 +30,7 @@ class LoginVC: BaseVC {
         userNameTf.layer.borderWidth=1.0
         userNameTf.layer.cornerRadius=3.0
         userNameTf.placeholder="请输入中国手机号码"
+        userNameTf.text="18701752687"
         self.view .addSubview(userNameTf)
         
         pwdTf=UITextField.init()
@@ -41,6 +42,8 @@ class LoginVC: BaseVC {
         pwdTf.layer.borderWidth=1.0
         pwdTf.layer.cornerRadius=3.0
         pwdTf.placeholder="请输入密码"
+        pwdTf.isSecureTextEntry=true
+        pwdTf.text="jingliang"
         self.view.addSubview(pwdTf)
         
         let button = UIButton(type: .custom)
@@ -97,32 +100,62 @@ class LoginVC: BaseVC {
         }
     }
     func clickAction(){
+        let usernameString=userNameTf.text?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        let passwordString = pwdTf.text?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        if (usernameString != nil) , (passwordString != nil) {
+            ServerEngine.shareServerEngine.loginWithMobile(parameters : ["countryNo" : "86","mobileNo":usernameString!,"password":passwordString!] , finishedCallback: { (result) in
+                
+                guard let dict = result as? [String : Any] else { return }
+                let dataDictionary = JSON(dict)
+                let dataDict=dataDictionary.dictionaryValue
+                guard let arr = dict["data"] as? [[String : Any]] else { return }
+//                for dict in arr {
+//                    let anchor = AnchorModel(dict: dict)
+//                    self.hottestGroup.anchors.append(anchor)
+//                }
+                self.myAppDelegate.loadIndex()
+                
+            })
+        }
         
     }
     func btnClick(sender:UIButton?) {
         let isWeChatInstalled = ShareSDK.isClientInstalled(SSDKPlatformType.typeWechat)
         let tags = sender?.tag
+//        qq
+//        weixin
+//        weibo
         switch tags! {
         case 100:
             if isWeChatInstalled {
-                
+                ShareSDK.getUserInfo(SSDKPlatformType.typeWechat, onStateChanged: { (state :SSDKResponseState,user :SSDKUser?,error :Error?) in
+                    self.loginWithThirdUser(thirdPartType: "weixin", thirdUser: user)
+                })
             }
             else
             {
-                
+                ShareSDK.getUserInfo(SSDKPlatformType.typeSinaWeibo, onStateChanged: { (state :SSDKResponseState,user :SSDKUser?,error :Error?) in
+                    self.loginWithThirdUser(thirdPartType: "weibo", thirdUser: user)
+                })
             }
             break
         case 101:
             if isWeChatInstalled {
-                
+                ShareSDK.getUserInfo(SSDKPlatformType.typeSinaWeibo, onStateChanged: { (state :SSDKResponseState,user :SSDKUser?,error :Error?) in
+                    self.loginWithThirdUser(thirdPartType: "weibo", thirdUser: user)
+                })
             }
             else
             {
-                
+                ShareSDK.getUserInfo(SSDKPlatformType.typeQQ, onStateChanged: { (state :SSDKResponseState,user :SSDKUser?,error :Error?) in
+                    self.loginWithThirdUser(thirdPartType: "qq", thirdUser: user)
+                })
             }
             break
         case 102:
-            
+            ShareSDK.getUserInfo(SSDKPlatformType.typeQQ, onStateChanged: { (state :SSDKResponseState,user :SSDKUser?,error :Error?) in
+                self.loginWithThirdUser(thirdPartType: "qq", thirdUser: user)
+            })
             break
             
         default: break
@@ -130,8 +163,21 @@ class LoginVC: BaseVC {
         }
     }
     
+    func loginWithThirdUser(thirdPartType:String,thirdUser:SSDKUser?) {
+        if thirdUser==nil {
+            return;
+        }
+        let para:[String:String]=["id":(thirdUser?.uid)!,"accessToken":(thirdUser?.credential.token)!,"avatar":(thirdUser!.icon)!,"nickName":(thirdUser?.nickname)!,"osType":"ios","channel":"iOS"]
+        ServerEngine.shareServerEngine.loginWithThirdPart(thirdPartType: thirdPartType,parameters: para) { (result) in
+            guard let dict = result as? [String : Any] else { return }
+            let dataDictionary = JSON(dict)
+            let dataDict=dataDictionary.dictionaryValue
+        }
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+        UserDefaultsUpdate(parameter: ["islogin":"","xxx":"vvv"])
     }
     
     override func didReceiveMemoryWarning() {

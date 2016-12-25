@@ -25,4 +25,6 @@
 #import "WeiboSDK.h"
 
 
+#import <CommonCrypto/CommonHMAC.h>
+
 #endif /* Fotoplace_Bridging_Header_h */

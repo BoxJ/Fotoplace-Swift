@@ -10,6 +10,7 @@ import UIKit
 
 class BaseVC: UIViewController {
 
+    let myAppDelegate : AppDelegate = UIApplication.shared.delegate as! AppDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

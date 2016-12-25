@@ -34,17 +34,6 @@ class HomeVC: BaseVC {
         errorLabel.snp.makeConstraints { (make) in
             make.edges.equalTo(UIEdgeInsets.init(top:iPhone_Height/2.0, left: 0, bottom:0.0, right: 0))
         }
-        
-        // Do any additional setup after loading the view.
-        ServerEngine.shareServerEngine.getSplash(completed: {
-            //闭包传递的参数
-            (json) in
-            //执行的代码
-            print(json!)
-            let dict = JSON(json as Any)
-            errorLabel.text=dict["error"].stringValue
-            label.text="Alamofire请求成功拿到返回"
-        })
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -52,17 +41,6 @@ class HomeVC: BaseVC {
         let errorLabel:UILabel = self.view.viewWithTag(101) as! UILabel
         label.text="Alamofire开始发起请求"
         errorLabel.text="等待返回结果"
-        ServerEngine.shareServerEngine.getSplash(completed: {
-            (json) in
-            print(json!)
-            let dict = JSON(json as Any)
-            errorLabel.text=dict["error"].stringValue
-            label.text="Alamofire请求成功拿到返回"
-        })
-        ServerEngine.shareServerEngine.getVideoList(pageNo: 1, completed: {
-            (json) in
-            print(json!)
-        })
     }
     
     override func didReceiveMemoryWarning() {

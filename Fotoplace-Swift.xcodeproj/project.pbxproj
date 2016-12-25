@@ -111,6 +111,11 @@
 		F15C0CCF1DFDA6EF00917BF4 /* VideoListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15C0CCE1DFDA6EF00917BF4 /* VideoListCell.swift */; };
 		F15C0CD11DFDA9AF00917BF4 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15C0CD01DFDA9AF00917BF4 /* Video.swift */; };
 		F15C0CD31DFDAEFA00917BF4 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15C0CD21DFDAEFA00917BF4 /* Player.swift */; };
+		F1FDB3BD1E0EF0BE00C74BEA /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FDB3BC1E0EF0BE00C74BEA /* String+Extension.swift */; };
+		F1FDB3BF1E0EF2E500C74BEA /* CenterControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FDB3BE1E0EF2E500C74BEA /* CenterControl.swift */; };
+		F1FDB3C11E0EF8C800C74BEA /* UserDefaultTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FDB3C01E0EF8C800C74BEA /* UserDefaultTool.swift */; };
+		F1FDB3C31E0EF8D600C74BEA /* DistTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FDB3C21E0EF8D600C74BEA /* DistTool.swift */; };
+		F1FDB3C51E0FB8A700C74BEA /* Dictionary+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FDB3C41E0FB8A700C74BEA /* Dictionary+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -316,6 +321,11 @@
 		F15C0CCE1DFDA6EF00917BF4 /* VideoListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoListCell.swift; sourceTree = "<group>"; };
 		F15C0CD01DFDA9AF00917BF4 /* Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		F15C0CD21DFDAEFA00917BF4 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		F1FDB3BC1E0EF0BE00C74BEA /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		F1FDB3BE1E0EF2E500C74BEA /* CenterControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterControl.swift; sourceTree = "<group>"; };
+		F1FDB3C01E0EF8C800C74BEA /* UserDefaultTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultTool.swift; sourceTree = "<group>"; };
+		F1FDB3C21E0EF8D600C74BEA /* DistTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistTool.swift; sourceTree = "<group>"; };
+		F1FDB3C41E0FB8A700C74BEA /* Dictionary+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -612,6 +622,7 @@
 			isa = PBXGroup;
 			children = (
 				F15C0B1F1DFC897100917BF4 /* UIImageView+Extension.swift */,
+				F1FDB3BC1E0EF0BE00C74BEA /* String+Extension.swift */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -620,6 +631,9 @@
 			isa = PBXGroup;
 			children = (
 				F15C0B1D1DFC784600917BF4 /* CommonConst.swift */,
+				F1FDB3BE1E0EF2E500C74BEA /* CenterControl.swift */,
+				F1FDB3C01E0EF8C800C74BEA /* UserDefaultTool.swift */,
+				F1FDB3C21E0EF8D600C74BEA /* DistTool.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -784,6 +798,7 @@
 			children = (
 				F15C0BB01DFD401600917BF4 /* ServerEngine.swift */,
 				F15C0BB21DFD410000917BF4 /* ServerConst.swift */,
+				F1FDB3C41E0FB8A700C74BEA /* Dictionary+Extension.swift */,
 			);
 			path = ServerTool;
 			sourceTree = "<group>";
@@ -957,8 +972,10 @@
 				F15C0AE91DFC757300917BF4 /* Constraint.swift in Sources */,
 				F15C0BA21DFD3E9200917BF4 /* ImageProcessor.swift in Sources */,
 				F15C0BAC1DFD3E9200917BF4 /* String+MD5.swift in Sources */,
+				F1FDB3BF1E0EF2E500C74BEA /* CenterControl.swift in Sources */,
 				F15C0B9F1DFD3E9200917BF4 /* ImageCache.swift in Sources */,
 				F15C0AFB1DFC757300917BF4 /* ConstraintMakerPriortizable.swift in Sources */,
+				F1FDB3C31E0EF8D600C74BEA /* DistTool.swift in Sources */,
 				F15C0B031DFC757300917BF4 /* ConstraintView.swift in Sources */,
 				F15C0AEC1DFC757300917BF4 /* ConstraintConstantTarget.swift in Sources */,
 				F15C0AFD1DFC757300917BF4 /* ConstraintMultiplierTarget.swift in Sources */,
@@ -1020,6 +1037,9 @@
 				F15C0B9E1DFD3E9200917BF4 /* Image.swift in Sources */,
 				F15C0BA81DFD3E9200917BF4 /* KingfisherOptionsInfo.swift in Sources */,
 				F15C0AF21DFC757300917BF4 /* ConstraintLayoutGuide+Extensions.swift in Sources */,
+				F1FDB3BD1E0EF0BE00C74BEA /* String+Extension.swift in Sources */,
+				F1FDB3C11E0EF8C800C74BEA /* UserDefaultTool.swift in Sources */,
+				F1FDB3C51E0FB8A700C74BEA /* Dictionary+Extension.swift in Sources */,
 				F15C0BA71DFD3E9200917BF4 /* KingfisherManager.swift in Sources */,
 				F15C0B1E1DFC784600917BF4 /* CommonConst.swift in Sources */,
 				F15C0ABF1DFC703D00917BF4 /* DrawerLeftMenuVC.swift in Sources */,
@@ -1179,7 +1199,7 @@
 					"$(PROJECT_DIR)/Fotoplace-Swift/ThirdParts/ShareSDK/Support/PlatformSDK/WeChatSDK",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = "cc.fotoplace.swift.Fotoplace-Swift";
+				PRODUCT_BUNDLE_IDENTIFIER = cc.fotoplace.FotoPlace;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "c84d3681-656f-4d9a-866d-2172220f233c";
 				PROVISIONING_PROFILE_SPECIFIER = Fotoplace_all;
@@ -1211,7 +1231,7 @@
 					"$(PROJECT_DIR)/Fotoplace-Swift/ThirdParts/ShareSDK/Support/PlatformSDK/WeChatSDK",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = "cc.fotoplace.swift.Fotoplace-Swift";
+				PRODUCT_BUNDLE_IDENTIFIER = cc.fotoplace.FotoPlace;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "c84d3681-656f-4d9a-866d-2172220f233c";
 				PROVISIONING_PROFILE_SPECIFIER = Fotoplace_all;
