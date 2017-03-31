@@ -1199,7 +1199,7 @@
 					"$(PROJECT_DIR)/Fotoplace-Swift/ThirdParts/ShareSDK/Support/PlatformSDK/WeChatSDK",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = cc.fotoplace.FotoPlace;
+				PRODUCT_BUNDLE_IDENTIFIER = cc.fotoplace.FotoPlaceSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "c84d3681-656f-4d9a-866d-2172220f233c";
 				PROVISIONING_PROFILE_SPECIFIER = Fotoplace_all;
@@ -1231,7 +1231,7 @@
 					"$(PROJECT_DIR)/Fotoplace-Swift/ThirdParts/ShareSDK/Support/PlatformSDK/WeChatSDK",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = cc.fotoplace.FotoPlace;
+				PRODUCT_BUNDLE_IDENTIFIER = cc.fotoplace.FotoPlaceSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "c84d3681-656f-4d9a-866d-2172220f233c";
 				PROVISIONING_PROFILE_SPECIFIER = Fotoplace_all;

@@ -41,6 +41,7 @@ class HomeVC: BaseVC {
         let errorLabel:UILabel = self.view.viewWithTag(101) as! UILabel
         label.text="Alamofire开始发起请求"
         errorLabel.text="等待返回结果"
+        
     }
     
     override func didReceiveMemoryWarning() {

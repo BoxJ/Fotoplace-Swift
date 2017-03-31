@@ -108,11 +108,6 @@ class LoginVC: BaseVC {
                 guard let dict = result as? [String : Any] else { return }
                 let dataDictionary = JSON(dict)
                 let dataDict=dataDictionary.dictionaryValue
-                guard let arr = dict["data"] as? [[String : Any]] else { return }
-//                for dict in arr {
-//                    let anchor = AnchorModel(dict: dict)
-//                    self.hottestGroup.anchors.append(anchor)
-//                }
                 self.myAppDelegate.loadIndex()
                 
             })
@@ -172,6 +167,7 @@ class LoginVC: BaseVC {
             guard let dict = result as? [String : Any] else { return }
             let dataDictionary = JSON(dict)
             let dataDict=dataDictionary.dictionaryValue
+            print(dataDict)
         }
     }
     
