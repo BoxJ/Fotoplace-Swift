@@ -105,9 +105,9 @@ class LoginVC: BaseVC {
         if (usernameString != nil) , (passwordString != nil) {
             ServerEngine.shareServerEngine.loginWithMobile(parameters : ["countryNo" : "86","mobileNo":usernameString!,"password":passwordString!] , finishedCallback: { (result) in
                 
-                guard let dict = result as? [String : Any] else { return }
-                let dataDictionary = JSON(dict)
-                let dataDict=dataDictionary.dictionaryValue
+//                guard let dict = result as? [String : Any] else { return }
+//                let dataDictionary = JSON(dict)
+//                let dataDict=dataDictionary.dictionaryValue
                 self.myAppDelegate.loadIndex()
                 
             })
@@ -164,10 +164,11 @@ class LoginVC: BaseVC {
         }
         let para:[String:String]=["id":(thirdUser?.uid)!,"accessToken":(thirdUser?.credential.token)!,"avatar":(thirdUser!.icon)!,"nickName":(thirdUser?.nickname)!,"osType":"ios","channel":"iOS"]
         ServerEngine.shareServerEngine.loginWithThirdPart(thirdPartType: thirdPartType,parameters: para) { (result) in
-            guard let dict = result as? [String : Any] else { return }
-            let dataDictionary = JSON(dict)
-            let dataDict=dataDictionary.dictionaryValue
-            print(dataDict)
+//            guard let dict = result as? [String : Any] else { return }
+//            let dataDictionary = JSON(dict)
+//            let dataDict=dataDictionary.dictionaryValue
+//            print(dataDict)
+            self.myAppDelegate.loadIndex()
         }
     }
     

@@ -7,7 +7,8 @@
 //
 
 import UIKit
-
+import SnapKit
+import SwiftyJSON
 class BaseVC: UIViewController {
 
     let myAppDelegate : AppDelegate = UIApplication.shared.delegate as! AppDelegate
