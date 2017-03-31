@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SwiftyJSON
 class LoginVC: BaseVC {
 
     private var userNameTf: UITextField!
@@ -104,12 +104,13 @@ class LoginVC: BaseVC {
         let passwordString = pwdTf.text?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         if (usernameString != nil) , (passwordString != nil) {
             ServerEngine.shareServerEngine.loginWithMobile(parameters : ["countryNo" : "86","mobileNo":usernameString!,"password":passwordString!] , finishedCallback: { (result) in
-                
-//                guard let dict = result as? [String : Any] else { return }
-//                let dataDictionary = JSON(dict)
-//                let dataDict=dataDictionary.dictionaryValue
-                self.myAppDelegate.loadIndex()
-                
+                let dataDictionary = JSON(result)
+                let dataDict:Dictionary=dataDictionary.dictionaryValue
+                if !dataDict.validateError()
+                {
+                    print(dataDict)
+                    self.myAppDelegate.loadIndex()
+                }
             })
         }
         
