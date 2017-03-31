@@ -10,18 +10,19 @@ import Foundation
 
 // MARK: - Methods
 public extension Dictionary {
-    
-    
-//    public func validateError() -> Bool {
-//        let value:String = self["22"] as? String
-//        if  value.isEmpty {
-//            
-//        }else{
-//            
-//        }
-//        return true
-//    }
-    
+
+    public func validateError() -> Bool {
+        for key in self.keys {
+            let keyString=String(describing:key)
+            if keyString=="error" {
+                let valueString = String(describing:self[key])
+                if !valueString.isEmpty {
+                    return true
+                }
+            }
+        }
+        return false
+    }
     /// SwifterSwift: Check if key exists in dictionary.
     ///
     /// - Parameter key: key to search for
